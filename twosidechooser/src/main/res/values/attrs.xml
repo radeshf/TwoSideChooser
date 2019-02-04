@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Chooser">
+        <attr name="acceptValue" format="integer"/>
+        <attr name="ignoreValue" format="integer"/>
+        <attr name="acceptAnimationValue" format="integer"/>
+        <attr name="ignoreAnimationValue" format="integer"/>
+        <attr name="centerProgress" format="integer"/>
+        <attr name="enableNearbyAnimation" format="boolean"/>
+        <attr name="enableReturnToCenter" format="boolean"/>
+        <attr name="acceptDrawable" format="reference"/>
+        <attr name="ignoreDrawable" format="reference"/>
+        <attr name="arrowsDrawable" format="reference"/>
+    </declare-styleable>
+</resources>
