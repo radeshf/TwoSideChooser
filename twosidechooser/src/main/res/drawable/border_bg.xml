@@ -5,6 +5,6 @@
 
     <solid android:color="@color/seekbar_bg" />
 
-    <corners android:radius="@dimen/_10sdp" />
+    <corners android:radius="10dp" />
 
 </shape>

@@ -10,6 +10,18 @@
         <attr name="enableReturnToCenter" format="boolean"/>
         <attr name="acceptDrawable" format="reference"/>
         <attr name="ignoreDrawable" format="reference"/>
+        <attr name="acceptBackgroundDrawable" format="reference"/>
+        <attr name="ignoreBackgroundDrawable" format="reference"/>
+        <attr name="acceptBackgroundColor" format="color"/>
+        <attr name="ignoreBackgroundColor" format="color"/>
         <attr name="arrowsDrawable" format="reference"/>
+        <attr name="arrowsDrawableRotation" format="float"/>
+        <attr name="acceptDrawableRotation" format="float"/>
+        <attr name="ignoreDrawableRotation" format="float"/>
+        <attr name="thumbDrawable" format="reference"/>
+        <attr name="drawablesPadding" format="dimension"/>
+        <attr name="acceptDrawableSize" format="dimension"/>
+        <attr name="ignoreDrawableSize" format="dimension"/>
+        <attr name="chooserBackgroundColor" format="color"/>
     </declare-styleable>
 </resources>

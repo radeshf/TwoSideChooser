@@ -7,6 +7,33 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnExample1"
+            android:text="Example 1"
+            style="@style/Widget.AppCompat.Button.Colored"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnExample2"
+            app:layout_constraintBottom_toTopOf="@id/chooser"
+            android:layout_marginTop="10dp"
+
+    />
+    <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnExample2"
+            android:text="Example 2"
+            style="@style/Widget.AppCompat.Button.Colored"
+            app:layout_constraintEnd_toStartOf="@id/btnExample1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/chooser"
+            android:layout_marginTop="10dp"
+
+    />
+
     <radesh.twosidechooser.Chooser
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -16,5 +43,46 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:id="@+id/btnSmoothReturnToCenter"
+            android:text="smooth return to center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chooser"
+            android:layout_marginTop="10dp"
 
+    />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:id="@+id/btnChangeBgColor"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="Change Background Color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnSmoothReturnToCenter"
+            android:layout_marginTop="10dp"
+
+    />
+    <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:id="@+id/btnChangeThumb"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:text="Change Thumb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnChangeBgColor"
+            android:layout_marginTop="10dp"
+
+    />
 </android.support.constraint.ConstraintLayout>

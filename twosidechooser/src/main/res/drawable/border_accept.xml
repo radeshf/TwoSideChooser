@@ -5,7 +5,4 @@
 
     <solid android:color="@color/green" />
 
-    <corners android:radius="@dimen/_8sdp" />
-
-
 </shape>
