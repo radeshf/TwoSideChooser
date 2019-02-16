@@ -38,9 +38,9 @@ class MainActivity : AppCompatActivity() {
             chooser.setIgnoreBackgroundColor(Color.BLACK)
         }
         btnChangeThumb.setOnClickListener {
-//            chooser.setThumbSize(180,180)
-            test().Test()
+            chooser.setThumbSize(180,180)
         }
+
 
         btnClicks()
 

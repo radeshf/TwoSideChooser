@@ -111,9 +111,9 @@
             app:chooserBackgroundColor="#124743"
             app:drawablesPadding="5dp"
             app:thumbDrawable="@drawable/ic_candidate"
-            android:layout_marginBottom="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+    />
 
 </android.support.constraint.ConstraintLayout>

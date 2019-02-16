@@ -3,10 +3,10 @@
 Two side chooser for accept and ignore situation
 
 [![](https://jitpack.io/v/radeshf/TwoSideChooser.svg)](https://jitpack.io/#radeshf/TwoSideChooser)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/radeshf/TwoSideChooser/blob/master/LICENSE)
 
-<img src="/art/simple.png?raw=true" width="200px">
-<img src="/art/header.png?raw=true" width="200px">
-<img src="/art/custom.png?raw=true" width="200px">
+<img src="/arts/ex2.jpg?raw=true" width="300px">              <img src="/arts/ex1.jpg?raw=true" width="300px">
+
 
 ### Dependency
 
@@ -27,7 +27,180 @@ dependencies {
     implementation 'com.github.radeshf:TwoSideChooser:1.0.0'
 }
 ```
-### Usage
+##### Example 1
+
+<img src="/arts/ex1.gif?raw=true" width="300px">
+
+* XML :
+
+``` XML
+    <radesh.twosidechooser.Chooser
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chooser"
+            app:acceptDrawable="@drawable/ic_accept_ex1"
+            app:acceptDrawableSize="50dp"
+            app:acceptBackgroundColor="#ffca05"
+            app:ignoreDrawable="@drawable/ic_ignore_ex1"
+            app:ignoreDrawableSize="50dp"
+            app:ignoreBackgroundColor="#ffca05"
+            app:arrowsDrawable="@drawable/ic_arrows_ex1"
+            app:arrowsDrawableRotation="180"
+            app:chooserBackgroundColor="#124743"
+            app:drawablesPadding="5dp"
+            app:thumbDrawable="@drawable/ic_candidate"
+    />
+```
+
+##### Example 2
+
+<img src="/arts/ex2.gif?raw=true" width="300px">
+
+* XML :
+
+``` XML
+    <radesh.twosidechooser.Chooser
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chooser"
+            app:enableSelectWithClick="false"
+            app:enableNearbyAnimation="true"
+            app:enableReturnToCenter="true"
+            app:acceptDrawableSize="55dp"
+            app:ignoreDrawableSize="55dp"
+            app:ignoreDrawableRotation="135"
+            app:chooserBackgroundColor="#00ffffff"
+            app:drawablesPadding="10dp"
+            app:acceptValue="90"
+            app:ignoreValue="10"
+            app:thumbDrawable="@drawable/ic_fingerprint_ex2"
+    />
+
+```
+
+* Configure using xml attributes or setters in code:
+
+    <table>
+    <th>Attribute Name</th>
+    <th>Default Value</th>
+    <th>Description</th>
+    <tr>
+        <td>app:acceptValue="10"</td>
+        <td>85</td>
+        <td>when arrives to this value fire onAccept()\n must be in 55 to 100</td>
+    </tr>
+    <tr>
+        <td>app:ignoreValue="90"</td>
+        <td>15</td>
+        <td>when arrives to this value fire onIgnore() \n must be in 0 to 45</td>
+    </tr>
+    <tr>
+        <td>app:acceptAnimationValue="70"</td>
+        <td>60</td>
+        <td>after this value will played animation for accept button \n must be in 55 to 100</td>
+    </tr>
+    <tr>
+        <td>app:ignoreAnimationValue="20"</td>
+        <td>30</td>
+        <td>after this value will played animation for ignore button \n must be in 0 to 45</td>
+    </tr>
+    <tr>
+        <td>app:centerProgress="50"</td>
+        <td>50</td>
+        <td>thumb return to this progress</td>
+    </tr>
+    <tr>
+        <td>app:enableNearbyAnimation="false"</td>
+        <td>true</td>
+        <td>enable/disable animation when thumb close to buttons</td>
+    </tr>
+    <tr>
+        <td>app:enableReturnToCenter="false"</td>
+        <td>true</td>
+        <td>return to center when thumb release and not in accept/ignore value if `true`</td>
+    </tr>
+    <tr>
+        <td>app:enableSelectWithClick="true"</td>
+        <td>false</td>
+        <td>prevent to accept with single tap on buttons (swipe not necessary if `true`)</td>
+    </tr>
+    <tr>
+        <td>app:acceptDrawable="@drawable/ic_accept"</td>
+        <td>ic_accept</td>
+        <td>sets accept drawable</td>
+    </tr>
+    <tr>
+        <td>app:ignoreDrawable="@drawable/ic_ignore"</td>
+        <td>ic_accept</td>
+        <td>sets ignore drawable</td>
+    </tr>
+    <tr>
+        <td>app:acceptBackgroundDrawable="@drawable/accept_bg"</td>
+        <td>border_accept</td>
+        <td>sets accept background drawable</td>
+    </tr>
+    <tr>
+        <td>app:ignoreBackgroundDrawable="@drawable/ignore_bg"</td>
+        <td>chooser_border_ignore</td>
+        <td>sets ignore background drawable</td>
+    </tr>
+    <tr>
+        <td>app:acceptBackgroundColor="@color/accept_color"</td>
+        <td>#15AE15</td>
+        <td>sets accept background drawable color</td>
+    </tr>
+    <tr>
+        <td>app:ignoreBackgroundColor="@color/ignore_color"</td>
+        <td>#D91A1A</td>
+        <td>sets ignore background drawable color</td>
+    </tr>
+    <tr>
+        <td>app:arrowsDrawable="@drawable/ic_arrows"</td>
+        <td>ic_arrows</td>
+        <td>sets arrows drawable together</td>
+    </tr>
+    <tr>
+        <td>app:arrowsDrawableRotation="180"</td>
+        <td>0</td>
+        <td>rotate both arrows</td>
+    </tr>
+    <tr>
+        <td>app:acceptDrawableRotation="90"</td>
+        <td>0</td>
+        <td>rotate accept drawable</td>
+    </tr>
+    <tr>
+        <td>app:ignoreDrawableRotation="135"</td>
+        <td>0</td>
+        <td>rotate ignore drawable</td>
+    </tr>
+    <tr>
+        <td>app:thumbDrawable="@drawable/ic_thumb"</td>
+        <td>ic_thumb</td>
+        <td>sets thumb drawable</td>
+    </tr>
+    <tr>
+        <td>app:drawablesPadding="0dp"</td>
+        <td>10dp</td>
+        <td>sets accept/ignore drawables padding(recommended)</td>
+    </tr>
+    <tr>
+        <td>app:acceptDrawableSize="50dp"</td>
+        <td>40dp</td>
+        <td>sets accept drawable size</td>
+    </tr>
+    <tr>
+        <td>app:ignoreDrawableSize="50dp"</td>
+        <td>40dp</td>
+        <td>sets ignore drawable size</td>
+    </tr>
+    <tr>
+        <td>app:chooserBackgroundColor="@color/chooser_color"</td>
+        <td>#008577</td>
+        <td>sets chooser background color</td>
+    </tr>
+
+    </table>
 
 License
 -------

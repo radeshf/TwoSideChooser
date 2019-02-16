@@ -8,6 +8,7 @@
         <attr name="centerProgress" format="integer"/>
         <attr name="enableNearbyAnimation" format="boolean"/>
         <attr name="enableReturnToCenter" format="boolean"/>
+        <attr name="enableSelectWithClick" format="boolean"/>
         <attr name="acceptDrawable" format="reference"/>
         <attr name="ignoreDrawable" format="reference"/>
         <attr name="acceptBackgroundDrawable" format="reference"/>

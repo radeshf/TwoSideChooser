@@ -21,8 +21,8 @@ import android.widget.SeekBar
 import android.graphics.drawable.GradientDrawable
 import android.widget.LinearLayout
 import android.util.DisplayMetrics
-
-
+import java.lang.IllegalArgumentException
+import java.util.*
 
 
 /**
@@ -45,8 +45,8 @@ class Chooser : FrameLayout {
     private var ignoreValue : Int = 15 //after this value will called ignore function
     private var acceptFinalValue : Int = 100 //after this value will called accept function
     private var ignoreFinalValue : Int = 0 //after this value will called ignore function
-    private var acceptAnimationValue : Int = 60 //after this value will played animation for near button
-    private var ignoreAnimationValue : Int = 30 //after this value will played animation for near button
+    private var acceptAnimationValue : Int = 60 //after this value will played animation for accept button
+    private var ignoreAnimationValue : Int = 30 //after this value will played animation for ignore button
     private var centerProgress : Int = 50 //going to center when leave the thumb
     private var maxValue : Int = 100 //maximum progress
 
@@ -111,12 +111,25 @@ class Chooser : FrameLayout {
      */
     private fun attributesHandle(typedArray: TypedArray) {
         acceptValue = typedArray.getInt(R.styleable.Chooser_acceptValue,acceptValue)
+        if (acceptValue !in 55..100){
+            throw IllegalArgumentException("acceptValue must in 55 to 100")
+        }
         ignoreValue = typedArray.getInt(R.styleable.Chooser_ignoreValue,ignoreValue)
+        if (ignoreValue !in 0..45){
+            throw IllegalArgumentException("ignoreValue must in 0 to 45")
+        }
         acceptAnimationValue = typedArray.getInt(R.styleable.Chooser_acceptAnimationValue,acceptAnimationValue)
+        if (acceptAnimationValue !in 55..100){
+            throw IllegalArgumentException("acceptAnimationValue must in 55 to 100")
+        }
         ignoreAnimationValue = typedArray.getInt(R.styleable.Chooser_ignoreAnimationValue,ignoreAnimationValue)
+        if (ignoreAnimationValue !in 0..45){
+            throw IllegalArgumentException("ignoreAnimationValue must in 0 to 45")
+        }
         centerProgress = typedArray.getInt(R.styleable.Chooser_centerProgress,centerProgress)
         nearbyAnimatedButtons = typedArray.getBoolean(R.styleable.Chooser_enableNearbyAnimation,nearbyAnimatedButtons)
         returnToCenter = typedArray.getBoolean(R.styleable.Chooser_enableReturnToCenter,returnToCenter)
+        selectWithClick = typedArray.getBoolean(R.styleable.Chooser_enableSelectWithClick,selectWithClick)
         arrowsDrawableRotation = typedArray.getFloat(R.styleable.Chooser_arrowsDrawableRotation,arrowsDrawableRotation)
         acceptDrawableRotation = typedArray.getFloat(R.styleable.Chooser_acceptDrawableRotation,acceptDrawableRotation)
         ignoreDrawableRotation = typedArray.getFloat(R.styleable.Chooser_ignoreDrawableRotation,ignoreDrawableRotation)
@@ -144,15 +157,16 @@ class Chooser : FrameLayout {
             else -> getDrawable(R.drawable.ic_pin)!!
         }
 
+        acceptBackgroundDrawable = when {
+            typedArray.getDrawable(R.styleable.Chooser_acceptBackgroundDrawable)!=null -> typedArray.getDrawable(R.styleable.Chooser_acceptBackgroundDrawable)!!
+            else -> getDrawable(R.drawable.border_accept)!!
+        }
+
         ignoreBackgroundDrawable = when {
             typedArray.getDrawable(R.styleable.Chooser_ignoreBackgroundDrawable)!=null -> typedArray.getDrawable(R.styleable.Chooser_ignoreBackgroundDrawable)!!
             else -> getDrawable(R.drawable.chooser_border_ignore)!!
         }
 
-        acceptBackgroundDrawable = when {
-            typedArray.getDrawable(R.styleable.Chooser_acceptBackgroundDrawable)!=null -> typedArray.getDrawable(R.styleable.Chooser_acceptBackgroundDrawable)!!
-            else -> getDrawable(R.drawable.border_accept)!!
-        }
         ignoreBackgroundColor = typedArray.getColor(R.styleable.Chooser_ignoreBackgroundColor,getColor(R.color.red))
         acceptBackgroundColor = typedArray.getColor(R.styleable.Chooser_acceptBackgroundColor,getColor(R.color.green))
         chooserBackgroundColor = typedArray.getColor(R.styleable.Chooser_chooserBackgroundColor,getColor(R.color.seekbar_bg))
@@ -305,6 +319,9 @@ class Chooser : FrameLayout {
      * @param mirror if set it True we change [ignoreValue]  base on [acceptValue]
      */
     public fun setAcceptValue(@IntRange(from = 55, to = 100) acceptValue: Int, mirror: Boolean = false){
+        if (acceptValue !in 55..100){
+            throw IllegalArgumentException("acceptValue must in 55 to 100")
+        }
         this.acceptValue = acceptValue
         when { mirror-> ignoreValue = maxValue - acceptValue }
     }
@@ -314,6 +331,9 @@ class Chooser : FrameLayout {
      * @param mirror if set it True we change [acceptValue]  base on [ignoreValue]
      */
     public fun setIgnoreValue(@IntRange(from = 0, to = 45) ignoreValue: Int, mirror: Boolean = false){
+        if (ignoreValue !in 0..45){
+            throw IllegalArgumentException("ignoreValue must in 0 to 45")
+        }
         this.ignoreValue = ignoreValue
         when { mirror-> acceptValue = maxValue - ignoreValue }
     }
@@ -323,6 +343,9 @@ class Chooser : FrameLayout {
      * @param mirror if set it True we change [ignoreAnimationValue]  base on [acceptAnimationValue]
      */
     public fun setAcceptAnimationValue(@IntRange(from = 55, to = 100) acceptAnimationValue: Int, mirror: Boolean = false){
+        if (acceptAnimationValue !in 55..100){
+            throw IllegalArgumentException("acceptAnimationValue must in 55 to 100")
+        }
         this.acceptAnimationValue = acceptAnimationValue
         when { mirror-> ignoreAnimationValue = maxValue - acceptAnimationValue }
     }
@@ -332,6 +355,9 @@ class Chooser : FrameLayout {
      * @param mirror if set it True we change [acceptAnimationValue]  base on [ignoreAnimationValue]
      */
     public fun setIgnoreAnimationValue(@IntRange(from = 0, to = 45) ignoreAnimationValue: Int, mirror: Boolean = false){
+        if (ignoreAnimationValue !in 0..45){
+            throw IllegalArgumentException("ignoreAnimationValue must in 0 to 45")
+        }
         this.ignoreAnimationValue = ignoreAnimationValue
         when { mirror-> acceptAnimationValue = maxValue - ignoreAnimationValue }
     }
@@ -343,6 +369,9 @@ class Chooser : FrameLayout {
      *  @see doWithoutStopTracking()
      */
     public fun setAcceptFinalValue(@IntRange(from = 55, to = 100) acceptFinalValue: Int, mirror: Boolean = false){
+        if (acceptFinalValue !in 55..100){
+            throw IllegalArgumentException("acceptFinalValue must in 55 to 100")
+        }
         this.acceptFinalValue = acceptFinalValue
         when { mirror-> ignoreFinalValue = maxValue - acceptFinalValue }
     }
@@ -354,6 +383,9 @@ class Chooser : FrameLayout {
      *  @see doWithoutStopTracking()
      */
     public fun setIgnoreFinalValue(@IntRange(from = 0, to = 45) ignoreFinalValue: Int, mirror: Boolean = false){
+        if (ignoreFinalValue !in 0..45){
+            throw IllegalArgumentException("ignoreFinalValue must in 0 to 45")
+        }
         this.ignoreFinalValue = ignoreFinalValue
         when { mirror-> acceptFinalValue = maxValue - ignoreFinalValue }
     }
