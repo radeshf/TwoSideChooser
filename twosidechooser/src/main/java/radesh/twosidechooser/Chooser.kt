@@ -79,7 +79,7 @@ class Chooser : FrameLayout {
     private var nearbyAnimatedButtons : Boolean = true // animation when near to buttons
     private var returnToCenter : Boolean = true //when dismiss thumb return to center
 
-    private var listener: onSwipeEndListener? = null // listener for when return to end of progress
+    private var listener: OnSwipeEndListener? = null // listener for when return to end of progress
 
 
 
@@ -459,7 +459,7 @@ class Chooser : FrameLayout {
     /**
      * for feed listener when swipe to end or right
      */
-    public fun setOnSwipeEndListener(onSwipeEndListener: onSwipeEndListener){
+    public fun setOnSwipeEndListener(onSwipeEndListener: OnSwipeEndListener){
         listener = onSwipeEndListener
     }
 

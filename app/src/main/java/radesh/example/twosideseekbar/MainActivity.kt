@@ -6,11 +6,9 @@ import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
-import radesh.twosidechooser.onSwipeEndListener
+import radesh.twosidechooser.OnSwipeEndListener
 
 class MainActivity : AppCompatActivity() {
     private val tag = "chooserExample"
@@ -19,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        chooser.setOnSwipeEndListener(object : onSwipeEndListener{
+        chooser.setOnSwipeEndListener(object : OnSwipeEndListener{
             override fun onAccept() {
                 Log.e(tag,"Accepted")
             }

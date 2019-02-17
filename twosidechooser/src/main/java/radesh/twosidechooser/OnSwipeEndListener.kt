@@ -1,6 +1,6 @@
 package radesh.twosidechooser
 
-interface onSwipeEndListener {
+interface OnSwipeEndListener {
     abstract fun onAccept() // when swipe to right
     abstract fun onIgnore() // when swipe to left
 }
