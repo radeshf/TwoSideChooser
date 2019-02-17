@@ -87,10 +87,14 @@ For listening user swipe to accept or ignore
 chooser.setOnSwipeEndListener(object : onSwipeEndListener{
             override fun onAccept() {
                 Log.i(tag,"Accepted")
+		//return to center with animation
+		chooser.smoothReturnToCenter()
             }
             
             override fun onIgnore() {
                 Log.i(tag,"Ignored")
+		//return to center promptly
+		chooser.returnToCenter()
             }
         })
 ```
@@ -98,10 +102,10 @@ chooser.setOnSwipeEndListener(object : onSwipeEndListener{
 Use this if you want to be approved promptly 
 
 ``` kotlin
-        //approved promptly when you swipe to end or start
-        chooser.enableDoWithoutStopTracking(true)
-        //sets acceptValue to 98 and calculate ignore value (ignoreValue = 2)
-        chooser.setAcceptFinalValue(98,true)
+//approved promptly when you swipe to end or start
+chooser.enableDoWithoutStopTracking(true)
+//sets acceptValue to 98 and calculate ignore value (ignoreValue = 2)
+chooser.setAcceptFinalValue(98,true)
 ```
 
 
