@@ -25,7 +25,7 @@ allprojects {
 Then, add the library to your project `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.github.radeshf:TwoSideChooser:1.0.4'
+    implementation 'com.github.radeshf:TwoSideChooser:1.0.5'
 }
 ```
 ##### Example 1
