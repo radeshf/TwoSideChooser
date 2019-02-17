@@ -104,8 +104,8 @@ Use this if you want to be approved promptly
 ``` kotlin
 //approved promptly when you swipe to end or start
 chooser.enableDoWithoutStopTracking(true)
-//sets acceptValue to 98 and calculate ignore value (ignoreValue = 2)
-chooser.setAcceptFinalValue(98,true)
+//sets acceptValue to 100 and calculate ignore value (ignoreValue = 0)
+chooser.setAcceptFinalValue(100,true)
 ```
 
 Some Other functions 
