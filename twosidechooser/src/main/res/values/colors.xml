@@ -3,7 +3,4 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="green">#15AE15</color>
-    <color name="red">#D91A1A</color>
-    <color name="seekbar_bg">#008577</color>
 </resources>

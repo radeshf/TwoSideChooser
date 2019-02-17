@@ -22,7 +22,6 @@ import android.graphics.drawable.GradientDrawable
 import android.widget.LinearLayout
 import android.util.DisplayMetrics
 import java.lang.IllegalArgumentException
-import java.util.*
 
 
 /**
@@ -68,10 +67,9 @@ class Chooser : FrameLayout {
 
     //use two animation for fix bug that start both animation when is one side
     private lateinit var animAccept : Animation//animation of movement
-
     private lateinit var animIgnore : Animation//animation of movement
-    private var isAcceptAnimEnd : Boolean = true //when dismiss thumb return to center
 
+    private var isAcceptAnimEnd : Boolean = true //when dismiss thumb return to center
     private var isIgnoreAnimEnd : Boolean = true //when dismiss thumb return to center
 
     private var doWithoutStopTracking : Boolean = false //fire interface with out stop Touching Thumb
@@ -154,7 +152,7 @@ class Chooser : FrameLayout {
 
         thumbDrawable = when {
             typedArray.getDrawable(R.styleable.Chooser_thumbDrawable)!=null -> typedArray.getDrawable(R.styleable.Chooser_thumbDrawable)!!
-            else -> getDrawable(R.drawable.ic_pin)!!
+            else -> getDrawable(R.drawable.ic_thumb)!!
         }
 
         acceptBackgroundDrawable = when {
@@ -167,9 +165,12 @@ class Chooser : FrameLayout {
             else -> getDrawable(R.drawable.chooser_border_ignore)!!
         }
 
-        ignoreBackgroundColor = typedArray.getColor(R.styleable.Chooser_ignoreBackgroundColor,getColor(R.color.red))
-        acceptBackgroundColor = typedArray.getColor(R.styleable.Chooser_acceptBackgroundColor,getColor(R.color.green))
-        chooserBackgroundColor = typedArray.getColor(R.styleable.Chooser_chooserBackgroundColor,getColor(R.color.seekbar_bg))
+//        if (typedArray.getColor(R.styleable.Chooser_ignoreBackgroundColor,-2)!=-2){
+//
+//        }
+        ignoreBackgroundColor = typedArray.getColor(R.styleable.Chooser_ignoreBackgroundColor,getColorFromRecources("colorAccent"))
+        acceptBackgroundColor = typedArray.getColor(R.styleable.Chooser_acceptBackgroundColor,getColorFromRecources("colorAccent"))
+        chooserBackgroundColor = typedArray.getColor(R.styleable.Chooser_chooserBackgroundColor,getColorFromRecources("colorPrimary"))
         typedArray.recycle()
     }
 
@@ -439,6 +440,7 @@ class Chooser : FrameLayout {
     public fun setMovementAnimation(anim: Animation){
         this.animAccept = anim
         this.animIgnore = anim
+        animationHandle()
     }
 
     /**
@@ -474,13 +476,6 @@ class Chooser : FrameLayout {
         seekBar.smoothSetProgress(centerProgress,animDuration,interpolator)
     }
 
-    /**
-     * for disable rotate ignore imageView
-     */
-//    public fun disableRotateImage(){
-//        ignoreDrawableRotate = 0f
-//        invalidate()
-//    }
     /**
      * change arrows imageViews alpha
      */

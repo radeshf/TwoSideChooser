@@ -92,7 +92,7 @@
             android:paddingEnd="30dp"
             android:paddingStart="30dp"
             android:progressDrawable="@drawable/progress"
-            android:thumb="@drawable/ic_pin" />
+            android:thumb="@drawable/ic_thumb" />
 
 
 

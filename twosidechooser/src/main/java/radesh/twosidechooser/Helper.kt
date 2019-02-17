@@ -11,6 +11,12 @@ import android.view.animation.Interpolator
 import android.view.animation.LinearInterpolator
 import android.widget.SeekBar
 import java.time.Duration
+import android.util.TypedValue
+import android.R.attr.data
+import android.content.Context
+import android.content.res.Resources.Theme
+
+
 
 fun SeekBar.smoothSetProgress(progress: Int,duration: Long=150 , interpolator:Interpolator = FastOutSlowInInterpolator()){
     val anim = ObjectAnimator.ofInt(this,"progress",this.progress,progress)
@@ -27,3 +33,8 @@ fun View.getColor(id: Int) : Int {
 fun View.getDrawable(id: Int) : Drawable? {
     return ResourcesCompat.getDrawable(resources,id,null)
 }
+
+fun View.getColorFromRecources(colorName: String): Int {
+    return getColor(resources.getIdentifier(colorName,"color",context.packageName))
+}
+
