@@ -67,7 +67,9 @@ dependencies {
             app:enableSelectWithClick="false"
             app:enableNearbyAnimation="true"
             app:enableReturnToCenter="true"
+            app:acceptDrawable="@drawable/ic_call"
             app:acceptDrawableSize="55dp"
+            app:ignoreDrawable="@drawable/ic_call"
             app:ignoreDrawableSize="55dp"
             app:ignoreDrawableRotation="135"
             app:chooserBackgroundColor="#00ffffff"
@@ -192,12 +194,12 @@ chooser.setChooserBackgroundColor(resources.getColor(R.color.colorAccent))
     </tr>
     <tr>
         <td>app:acceptBackgroundColor="@color/accept_color"</td>
-        <td>#15AE15</td>
+        <td>@color/colorAccent</td>
         <td>sets accept background drawable color</td>
     </tr>
     <tr>
         <td>app:ignoreBackgroundColor="@color/ignore_color"</td>
-        <td>#D91A1A</td>
+        <td>@color/colorAccent</td>
         <td>sets ignore background drawable color</td>
     </tr>
     <tr>
@@ -242,7 +244,7 @@ chooser.setChooserBackgroundColor(resources.getColor(R.color.colorAccent))
     </tr>
     <tr>
         <td>app:chooserBackgroundColor="@color/chooser_color"</td>
-        <td>#008577</td>
+        <td>@color/colorPrimary</td>
         <td>sets chooser background color</td>
     </tr>
 
