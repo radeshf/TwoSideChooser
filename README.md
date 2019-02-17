@@ -79,6 +79,22 @@ dependencies {
 
 ```
 
+* Kotlin :
+
+For listening user swipe to accept or ignore 
+
+``` kotlin
+chooser.setOnSwipeEndListener(object : onSwipeEndListener{
+            override fun onAccept() {
+                Log.e(tag,"Accepted")
+            }
+            
+            override fun onIgnore() {
+                Log.e(tag,"Ignored")
+            }
+        })
+```
+
 * Configure using xml attributes or setters in code:
 
     <table>
