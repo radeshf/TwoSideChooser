@@ -86,14 +86,24 @@ For listening user swipe to accept or ignore
 ``` kotlin
 chooser.setOnSwipeEndListener(object : onSwipeEndListener{
             override fun onAccept() {
-                Log.e(tag,"Accepted")
+                Log.i(tag,"Accepted")
             }
             
             override fun onIgnore() {
-                Log.e(tag,"Ignored")
+                Log.i(tag,"Ignored")
             }
         })
 ```
+
+Use this if you want to be approved promptly 
+
+``` kotlin
+        //approved promptly when you swipe to end or start
+        chooser.enableDoWithoutStopTracking(true)
+        //sets acceptValue to 98 and calculate ignore value (ignoreValue = 2)
+        chooser.setAcceptFinalValue(98,true)
+```
+
 
 * Configure using xml attributes or setters in code:
 
