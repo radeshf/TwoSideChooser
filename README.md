@@ -108,7 +108,22 @@ chooser.enableDoWithoutStopTracking(true)
 chooser.setAcceptFinalValue(98,true)
 ```
 
+Some Other functions 
 
+``` kotlin
+//sets acceptValue to 80 and calculate ignore value (ignoreValue = 20)
+chooser.setAcceptValue(80,true)
+// when enter this value animation will be start (when arrive above 60 and below 40)
+chooser.setAcceptAnimationValue(60,true)
+// change animation when arrive animation value(set above)
+chooser.setMovementAnimation(customAnimation)
+//if you want hide arrows use 0f
+chooser.setArrowsImagesAlpha(0.8f)
+//set drawable padding to look better
+chooser.setDrawablePadding(resources.getDimensionPixelOffset(R.dimen.padding))
+//set chooser background 
+chooser.setChooserBackgroundColor(resources.getColor(R.color.colorAccent))
+```
 * Configure using xml attributes or setters in code:
 
     <table>
