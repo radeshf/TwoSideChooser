@@ -231,8 +231,8 @@ chooser.setChooserBackgroundColor(resources.getColor(R.color.colorAccent))
     </tr>
     <tr>
         <td>app:drawablesPadding="0dp"</td>
-        <td>10dp</td>
-        <td>sets accept/ignore drawables padding(recommended)</td>
+        <td>0</td>
+        <td>sets accept/ignore drawables padding</td>
     </tr>
     <tr>
         <td>app:acceptDrawableSize="50dp"</td>
