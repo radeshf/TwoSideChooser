@@ -128,6 +128,7 @@ chooser.setDrawablePadding(resources.getDimensionPixelOffset(R.dimen.padding))
 //set chooser background 
 chooser.setChooserBackgroundColor(resources.getColor(R.color.colorAccent))
 ```
+
 * Configure using xml attributes or setters in code:
 
     <table>
