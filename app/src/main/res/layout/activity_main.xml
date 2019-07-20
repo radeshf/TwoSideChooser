@@ -39,7 +39,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/chooser"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
@@ -48,6 +47,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
+            android:visibility="gone"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:id="@+id/btnSmoothReturnToCenter"
             android:text="smooth return to center"
@@ -63,6 +63,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:id="@+id/btnChangeBgColor"
+            android:visibility="gone"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:text="Change Background Color"
             app:layout_constraintEnd_toEndOf="parent"
@@ -77,6 +78,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:id="@+id/btnChangeThumb"
+            android:visibility="gone"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:text="Change Thumb"
             app:layout_constraintEnd_toEndOf="parent"
