@@ -22,6 +22,7 @@ import android.graphics.drawable.GradientDrawable
 import android.widget.LinearLayout
 import android.util.DisplayMetrics
 import java.lang.IllegalArgumentException
+import kotlin.math.abs
 
 
 /**
@@ -280,17 +281,24 @@ class Chooser : FrameLayout {
 //                        }
 //                    }
 //                }
-                when {
-                    !selectWithClick -> when {
-                        Math.abs(startProgress - seekBar.progress) > selectWithClickRange -> seekBar.progress = startProgress
+                if (!selectWithClick){
+                    when {
+                        abs(startProgress - seekBar.progress) > selectWithClickRange -> seekBar.progress = startProgress
                         else -> startProgress = seekBar.progress
                     }
                 }
 
+
                 when {
                     doWithoutStopTracking -> when {
-                        seekBar.progress >= acceptFinalValue -> if (listener!=null) listener?.onAccept()
-                        seekBar.progress <= ignoreFinalValue -> if (listener!=null) listener?.onIgnore()
+                        seekBar.progress >= acceptFinalValue -> {
+                            if (listener!=null) listener?.onAccept()
+                            if (returnToCenter) smoothReturnToCenter()
+                        }
+                        seekBar.progress <= ignoreFinalValue -> {
+                            if (listener!=null) listener?.onIgnore()
+                            if (returnToCenter) smoothReturnToCenter()
+                        }
                     }
                 }
             }

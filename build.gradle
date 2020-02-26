@@ -24,10 +24,10 @@ allprojects {
         compileSdkVersion = 28
         targetSdkVersion = 28
         minSdkVersion = 17
-        libVersionCode = 6
-        versionCode = 6
-        libVersionName = '1.0.7'
-        versionName = '1.0.7'
+        libVersionCode = 8
+        versionCode = 8
+        libVersionName = '1.0.8'
+        versionName = '1.0.8'
     }
 }
 
