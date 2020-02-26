@@ -11,7 +11,7 @@ Two side chooser for accept and ignore situation
 
 ### Dependency
 
-Add this in your root `build.gradle` file (**not** your module `build.gradle` file):
+Add this into your root `build.gradle` file (**not** your module `build.gradle` file):
 
 ```gradle
 allprojects {
@@ -25,7 +25,7 @@ allprojects {
 Then, add the library to your project `build.gradle`
 ```gradle
 dependencies {
-    implementation 'com.github.radeshf:TwoSideChooser:1.0.4'
+    implementation 'com.github.radeshf:TwoSideChooser:1.0.6'
 }
 ```
 ##### Example 1

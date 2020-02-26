@@ -298,11 +298,14 @@ class Chooser : FrameLayout {
             override fun onStopTrackingTouch(seekBar: SeekBar) {
                 when {
                     !doWithoutStopTracking -> when {
-                        seekBar.progress >= acceptValue ->
+                        seekBar.progress >= acceptValue ->{
                             if (listener!=null) listener?.onAccept()
-                        seekBar.progress <= ignoreValue ->
+                            if (returnToCenter) smoothReturnToCenter()
+                        }
+                        seekBar.progress <= ignoreValue ->{
                             if (listener!=null) listener?.onIgnore()
-                        else -> if (returnToCenter) smoothReturnToCenter()
+                            if (returnToCenter) smoothReturnToCenter()
+                        }else -> if (returnToCenter) smoothReturnToCenter()
                     }
                     else -> {
                         if (seekBar.progress >= acceptFinalValue || seekBar.progress <= ignoreFinalValue || !returnToCenter) {
